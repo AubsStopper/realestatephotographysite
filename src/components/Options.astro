@@ -1,0 +1,82 @@
+---
+import Option from "./Option.astro";
+
+interface Props {
+    main?: string;
+	subset?: string;
+	url?: string;
+    iconClass?: string;
+}
+
+const options: Props[] = [
+    { url: 'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2014/05/real-estate-photography-home-front-lighting.jpg?w=1000&ssl=1', main: 'Exterior', iconClass:"",subset:"" },
+    { url: 'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2014/05/real-estate-photography-interior-before.jpg?w=943&ssl=1', main: 'Living Room', iconClass:"",subset:"" },
+    { url: 'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2014/05/real-estate-photography-camera-height-normal.jpg?w=957&ssl=1', main: 'Bedroom', iconClass:"",subset:"" },
+    { url: 'https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2014/05/real-estate-photography-color-balance-off.jpg?w=1092&ssl=1', main: 'Dining Room', iconClass:"",subset:"" }
+
+  ];
+
+ 
+ 
+---
+<script>
+const optionElements = document.querySelectorAll('.option');
+
+if (optionElements.length > 0) {
+// Get the first element from the NodeList
+const firstOptionElement = optionElements[0];
+
+// Do something with the first element
+firstOptionElement.classList.add('active');
+
+
+}
+
+
+optionElements.forEach((element) => {
+  element.addEventListener('click', () => {
+    // Remove "active" class from all option elements
+    optionElements.forEach((otherElement) => {
+      otherElement.classList.remove('active');
+    });
+
+    // Add "active" class to the clicked option element
+    element.classList.add('active');
+    
+    // Add more actions here
+  });
+});
+
+</script>
+
+<div class="options">
+    {options.map((option) => (
+        <Option option={option} />
+    ))}
+</div>
+
+
+<style lang="scss">
+   .options {
+      display:flex;
+      flex-direction:row;
+      align-items:stretch;
+      overflow:hidden;
+
+      min-width:600px;
+      max-width:900px;
+      width:calc(100% - 100px);
+      
+      height:400px;
+      
+      @for $i from 1 through 4 {
+         @media screen and (max-width:798px - $i*80) {
+            min-width:600px - $i*80;
+            .option:nth-child(#{6-$i}) {
+               display:none;
+            }
+         }
+      }
+    }     
+
+</style>

@@ -1,11 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Options from '../components/Options.astro';
+import Nav from '../components/Nav.astro';
 ---
 
 <Layout title="Welcome to Astro.">
+	<Nav />
 	<main>
-		<svg
+		<!-- <svg
 			class="astro-a"
 			width="495"
 			height="623"
@@ -37,8 +39,8 @@ import Card from '../components/Card.astro';
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
+		</p> -->
+		<!-- <ul role="list" class="link-card-grid">
 			<Card
 				href="https://docs.astro.build/"
 				title="Documentation"
@@ -55,11 +57,21 @@ import Card from '../components/Card.astro';
 				body="Explore a galaxy of community-built starter themes."
 			/>
 			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
+				href="/about"
+				title="Go To About"
+				body="Bam About"
 			/>
-		</ul>
+		</ul> -->
+		<!-- <Option
+			main="Main"
+			subset="other info"
+			iconClass="fas fa-walking"
+			url="https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg"
+			>
+		</Option> -->
+		<Options />
+
+	
 	</main>
 </Layout>
 
